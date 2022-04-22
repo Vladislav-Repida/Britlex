@@ -1,0 +1,117 @@
+@import "./fonts";
+
+@function calcPX($f-min, $f-max, $v-min, $v-max) {
+    $k: ($f-max - $f-min)/($v-max - $v-min);
+    $b: $f-min - $k * $v-min;
+  
+    $b: $b * 1px;
+  
+    @return calc( #{$k} * 100vw + #{$b} );
+}
+
+:root{
+    --font-fam: 'Poppins', sans-serif;
+
+    --color-link: var(--dark);
+    --font-size: 16px;
+    --color-link-hover: #adadad;
+    --font-weigth-standart: 400;
+
+    --transition: 0.3s;
+
+    --gap: 15px;
+
+    /* Colors */
+    --white: #fff;
+    --gray: #8F95A5;
+    --dark: #263238;
+    --black: #000;
+}
+*{
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+html{   
+    font-size: var(--font-size);
+}
+body{
+    margin: 0;
+    font-family: var(--font-fam);
+    font-weight: var(--font-weigth-standart);
+}
+body.no-scroll{
+    overflow: hidden;
+}
+p{
+    margin: 0;
+}
+h1, h2, h3, h4, h5, h6{
+    margin: 0;
+}
+ul, ol{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+a{
+    color: var(--color-link);
+    text-decoration: none;
+}
+a:hover{
+    color: var(--color-link-hover);
+}
+.container{
+    width: 320px;
+    padding: 0 var(--gap);
+    margin: 0 auto;
+    overflow: hidden;
+}
+button, input{
+    font-family: var(--font-fam);
+    font-weight: 400;
+}
+button{
+    cursor: pointer;
+}
+@media (min-width: 575px) {
+    .container{
+        width: 575px;
+    }
+    :root{
+        --gap: 41px;
+    }
+}
+@media (min-width: 767px) {
+    .container{
+        width: 767px;
+    }
+    :root{
+        --gap: 27.5px;
+    }
+}
+@media (min-width: 992px) {
+    .container{
+        width: 992px;
+    }
+    :root{
+        --gap: 31px;
+    }
+}
+@media (min-width: 1600px){
+    .container{
+        width: 1350px;
+    }
+    :root{
+        --gap: 130px;
+    }
+}
+/*
+@media (min-width: 1920px) {
+    .container{
+        width: 1600px;
+    }
+    :root{
+        --gap: 130px;
+    }
+}
+*/
